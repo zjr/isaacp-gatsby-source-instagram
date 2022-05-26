@@ -1,5 +1,5 @@
 <div align="center">
-<h1>gatsby-source-instagram</h1>
+<h1>isaacp-gatsby-source-instagram</h1>
 
 [![npm version](https://badge.fury.io/js/gatsby-source-instagram.svg)](https://badge.fury.io/js/gatsby-source-instagram)
 ![npm](https://img.shields.io/npm/dw/gatsby-source-instagram.svg)
@@ -10,7 +10,7 @@
 
 </div>
 
-Source plugin for sourcing data from Instagram. There are four ways to get information from instagram, but this fork only focuses on the graph API.  If you want to see the other options then check out the [original repo](https://github.com/oorestisime/gatsby-source-instagram)
+This is a fork from the gatsby-source-instagram plugin. There are four ways to get information from instagram, but this fork only focuses on the graph API.  If you want to see the other options then check out the [original repo](https://github.com/oorestisime/gatsby-source-instagram)
 
 # Table of Contents
 
