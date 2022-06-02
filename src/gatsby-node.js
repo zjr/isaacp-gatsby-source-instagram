@@ -1,6 +1,6 @@
 const _ = require(`lodash`)
 
-const { apiInstagramPosts } = require(`./instagram`)
+const { getInstagramPosts } = require(`./instagram`)
 
 const defaultOptions = {
   type: `account`,
@@ -8,16 +8,7 @@ const defaultOptions = {
   hashtags: false,
 }
 
-async function getInstagramPosts(options) {
-  let data
-
-  if (options.access_token && options.instagram_id) {
-    data = await apiInstagramPosts(options)
-  }
-  return data
-}
-
-// constants for your GraphQL Post and Author types
+// constants for your GraphQL Post types
 const POST_NODE_TYPE = `InstagramPost`
 
 exports.sourceNodes = async (
