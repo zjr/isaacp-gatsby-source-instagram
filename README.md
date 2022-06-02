@@ -165,33 +165,47 @@ Any help on this side is greatly welcomed and appreciated!
 1. Go to your site settings -> Instagram -> Login into your Instagram account
 1. Create a [app](https://developers.facebook.com/apps/)
 1. Go to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/)
-   1. Make sure you are using v7 as api version
+   1. We will be using v13.0 
    1. Select your facebook app
    1. Click "Generate Access Token"
    1. Add the following permissions (pages_manage_ads, pages_manage_metadata, pages_read_engagement, pages_read_user_content, pages_show_list, instagram_basic)
    1. Make a GET request at `me/accounts`
-   1. copy the access_token in the response (we call this **temporary_token**)
-   1. click on the id to change the explorer url and append `?fields=instagram_business_account&access_token={access-token}`
+   1. Under the data array, look for the page you created in facebook and copy the access_token.  We will call this the **temporary_token**
+   1. click on the id to change the explorer url and append `?fields=instagram_business_account`
    1. save your `instagram_business_account.id`, this is your **instagram_id**
 1. [Access Token Debugger](https://developers.facebook.com/tools/debug/accesstoken/):
    1. Paste your temporary_token and press "Debug"
    1. You should see this token now expires in 3 months
    1. Press "Extend Access Token" and press the new debug that appears next to the token
-   1. You should see this token now never expires
+   1. This token is suppose to never expire but it will most likely expire in 3 months
    1. Copy this new token (we will call this **access_token**)
 
-With these two information you can now use the plugin as:
+With these two information you can use this snippet inside of your gatsby-config.js file:
 
 ```
 {
   resolve: `gatsby-source-instagram`,
   options: {
-    username: username,
-    access_token: access_token,
-    instagram_id: instagram_id,
+    customer_username: process.env.INSTAGRAM_CUSTOMER_USERNAME,
+    access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
+    instagram_id: process.env.INSTAGRAM_ID,
+    facebook_api_version: process.env.FACEBOOK_API_VERSION,
   },
 },
 ```
+
+You will need the following ENV variables and the `.env.development` file in your project root:
+
+NOTE:  If you are using your own instagram account then use the credentials we got earlier.  However, if you are a developer who is using this for a client's account then you must use their credentials to fill out the .env file below (everything except for INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_ID).
+
+```
+INSTAGRAM_ACCESS_TOKEN= The access_token we got earlier 
+INSTAGRAM_CUSTOMER_ID= client id
+INSTAGRAM_CUSTOMER_USERNAME= client username
+INSTAGRAM_ID= The instagram_id we got earlier
+FACEBOOK_API_VERSION=v13.0
+``` 
+
 
 ---
 
