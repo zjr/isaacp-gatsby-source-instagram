@@ -168,7 +168,7 @@ Any help on this side is greatly welcomed and appreciated!
    1. We will be using v13.0 
    1. Select your facebook app
    1. Click "Generate Access Token"
-   1. Add the following permissions (pages_manage_ads, pages_manage_metadata, pages_read_engagement, pages_read_user_content, pages_show_list, instagram_basic, business_management)
+   1. Add the following permissions (pages_manage_ads, pages_manage_metadata, pages_read_engagement, pages_read_user_content, pages_show_list, instagram_basic, instagram_manage_insights, business_management)
    1. Make a GET request at `me/accounts`
    1. Under the data array, look for the page you created in facebook and copy the access_token.  We will call this the **temporary_token**
    1. click on the id to change the explorer url and append `?fields=instagram_business_account`
